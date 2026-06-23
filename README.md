@@ -2,7 +2,9 @@
 
 ポモドーロ・テクニックを実践するための、ブラウザ上で動作するシンプルなタイマーアプリケーションです。
 
-サーバーやインストールは不要で、`index.html` をブラウザで開くだけで利用できます。HTML5・CSS3・JavaScript のみで実装されており、インターネット接続も不要です。
+サーバーやインストールは不要で、`index.html` をブラウザで開くだけで利用できます。
+
+HTML5・CSS3・JavaScript のみで実装されてています。
 
 ---
 
@@ -93,6 +95,10 @@ PC・スマートフォンの両方で快適に操作できるレスポンシブ
 ```
 pomodoro/index.html
 ```
+
+[こちら](https://glbyymt.github.io/pomodorotimer/)からでも起動できます。
+
+
 
 対応ブラウザ：Google Chrome、Microsoft Edge、Firefox
 
