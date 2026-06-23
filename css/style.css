@@ -1,0 +1,315 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-work-bg: #fce4e4;
+  --color-work-accent: #c62828;
+  --color-work-text: #4a1515;
+
+  --color-short-bg: #e8f5e9;
+  --color-short-accent: #2e7d32;
+  --color-short-text: #1b3d1f;
+
+  --color-long-bg: #e3f2fd;
+  --color-long-accent: #1565c0;
+  --color-long-text: #0d2d52;
+
+  --color-surface: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.12);
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--color-work-bg);
+  color: var(--color-work-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.mode-work {
+  background-color: var(--color-work-bg);
+  color: var(--color-work-text);
+}
+
+body.mode-short-break {
+  background-color: var(--color-short-bg);
+  color: var(--color-short-text);
+}
+
+body.mode-long-break {
+  background-color: var(--color-long-bg);
+  color: var(--color-long-text);
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--color-shadow);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+#lblTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+#lblMode {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  background-color: var(--color-work-accent);
+  color: #fff;
+  transition: background-color var(--transition-speed);
+}
+
+body.mode-work #lblMode {
+  background-color: var(--color-work-accent);
+}
+
+body.mode-short-break #lblMode {
+  background-color: var(--color-short-accent);
+}
+
+body.mode-long-break #lblMode {
+  background-color: var(--color-long-accent);
+}
+
+#lblTimer {
+  display: block;
+  font-size: 5rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  margin: 0.5rem 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+#lblSession {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.1s, background-color 0.15s;
+  min-width: 5.5rem;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#btnStart {
+  background-color: var(--color-work-accent);
+  color: #fff;
+}
+
+body.mode-short-break #btnStart {
+  background-color: var(--color-short-accent);
+}
+
+body.mode-long-break #btnStart {
+  background-color: var(--color-long-accent);
+}
+
+#btnPause {
+  background-color: #616161;
+  color: #fff;
+}
+
+#btnReset {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+#btnSetting {
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+  min-width: 8rem;
+}
+
+#btnSetting:hover {
+  opacity: 0.8;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.app-credit,
+.app-copyright {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.35);
+  font-weight: 400;
+}
+
+.app-copyright {
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
+}
+
+#messageArea {
+  min-height: 3rem;
+  margin-top: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px var(--color-shadow);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  display: none;
+}
+
+#messageArea.visible {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+#messageArea.error {
+  display: block;
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+#messageArea.success {
+  display: block;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* 設定画面 */
+#settingsScreen {
+  display: none;
+}
+
+#settingsScreen.active {
+  display: block;
+}
+
+#mainScreen.hidden {
+  display: none;
+}
+
+#settingsScreen h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.setting-row label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.setting-row .input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.setting-row input {
+  width: 4.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.setting-row input:focus {
+  outline: none;
+  border-color: var(--color-work-accent);
+}
+
+.setting-row .unit {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+#btnSave {
+  background-color: var(--color-work-accent);
+  color: #fff;
+}
+
+#btnCancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+@media (max-width: 400px) {
+  #lblTimer {
+    font-size: 3.5rem;
+  }
+
+  button {
+    min-width: 4.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .setting-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
