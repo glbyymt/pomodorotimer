@@ -657,7 +657,6 @@
 
     try {
       stopTicking();
-      stopKeepAlive();
       cancelBackgroundAlarm();
 
       const completedMode = state.mode;
@@ -669,11 +668,6 @@
         completedMode === MODE.WORK
           ? "作業終了です。\n休憩を開始します。"
           : "休憩終了です。\n次の作業を開始しましょう。";
-
-      state.isRunning = false;
-      state.endTime = null;
-      state.remainingSeconds = 0;
-      saveTimerState();
 
       showNotification("ポモドーロタイマー", notificationBody);
       playAlarm();
@@ -693,11 +687,10 @@
       }
 
       state.remainingSeconds = getDurationForMode(state.mode);
-      updateDisplay();
-
       state.isRunning = true;
       state.endTime = Date.now() + state.remainingSeconds * 1000;
       saveTimerState();
+      updateDisplay();
       startTicking();
       startRunningSupport();
       scheduleBackgroundAlarm();
